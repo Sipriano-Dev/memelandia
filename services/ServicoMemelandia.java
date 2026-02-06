@@ -17,7 +17,7 @@ public class ServicoMemelandia {
     private RepositorioMeme repositorioMeme;
 
     @Autowired
-    private RepositorioCategoriaMeme repositorioCategoriaMeme;
+    private CategoriaMemeService categoriaMemeService;
 
     @Autowired
     private UsuarioService usuarioService;
@@ -40,10 +40,10 @@ public class ServicoMemelandia {
     }
 
     public CategoriaMeme novaCategoriaMeme(CategoriaMeme categoriaMeme) {
-        return repositorioCategoriaMeme.save(categoriaMeme);
+        return categoriaMemeService.criarCategoria(categoriaMeme);
     }
 
     public List<CategoriaMeme> listaTodasCategorias() {
-        return repositorioCategoriaMeme.findAll();
+        return categoriaMemeService.listarCategoria();
     }
 }
