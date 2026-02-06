@@ -24,8 +24,5 @@ public class CategoriaMemeService {
         return repositorioCategoriaMeme.findAll();
     }
 
-    public Optional<CategoriaMeme> buscarPorId(Long id) {
-        return repositorioCategoriaMeme.findById(id);
-    }
 
 }

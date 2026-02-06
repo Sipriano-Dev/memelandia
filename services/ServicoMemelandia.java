@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class ServicoMemelandia {
     @Autowired
-    private RepositorioMeme repositorioMeme;
+    private MemeService memeService;
 
     @Autowired
     private CategoriaMemeService categoriaMemeService;
@@ -32,11 +32,11 @@ public class ServicoMemelandia {
     }
 
     public Meme novoMeme(Meme meme) {
-        return repositorioMeme.save(meme);
+        return memeService.criarMeme(meme);
     }
 
     public List<Meme> listaTodosMemes() {
-        return repositorioMeme.findAll();
+        return memeService.listarMemes();
     }
 
     public CategoriaMeme novaCategoriaMeme(CategoriaMeme categoriaMeme) {
