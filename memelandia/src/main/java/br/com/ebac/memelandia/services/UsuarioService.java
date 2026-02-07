@@ -1,27 +1,38 @@
 package br.com.ebac.memelandia.services;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import br.com.ebac.memelandia.entities.Usuario;
-import br.com.ebac.memelandia.repositories.RepositorioUsuario;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UsuarioService {
 
-    private final RepositorioUsuario repositorioUsuario;
+    private final RestTemplate restTemplate;
 
-    public UsuarioService(RepositorioUsuario repositorioUsuario) {
-        this.repositorioUsuario = repositorioUsuario;
+    public UsuarioService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
     }
 
     public Usuario criarUsuario(Usuario usuario) {
-        return repositorioUsuario.save(usuario);
+        return restTemplate.postForObject(
+                "http://localhost:8081/memelandia/usuarios",
+                usuario,
+                Usuario.class
+        );
     }
 
     public List<Usuario> listarUsuarios() {
-        return repositorioUsuario.findAll();
-    }
+        Usuario[] usuarios = restTemplate.getForObject(
+                "http://localhost:8081/memelandia/usuarios",
+                Usuario[].class
+        );
+        return Arrays.asList(usuarios);
+
+        }
 
 }
