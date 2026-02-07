@@ -5,7 +5,6 @@ import br.com.ebac.memelandia.repositories.RepositorioCategoriaMeme;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoriaMemeService {
