@@ -3,9 +3,6 @@ package br.com.ebac.memelandia.services;
 import br.com.ebac.memelandia.entities.CategoriaMeme;
 import br.com.ebac.memelandia.entities.Meme;
 import br.com.ebac.memelandia.entities.Usuario;
-import br.com.ebac.memelandia.repositories.RepositorioCategoriaMeme;
-import br.com.ebac.memelandia.repositories.RepositorioMeme;
-import br.com.ebac.memelandia.repositories.RepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
