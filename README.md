@@ -52,6 +52,15 @@ POST /usuarios
 Listar usuários:
 GET /usuarios
 
+- Exemplo de usuário pra adicionar
+  ```
+  {
+  "nome": "Carlos Pereira",
+  "email": "carlos@memelandia.com",
+  "dataCadastro": "2026-02-06"
+  }
+  ```
+
 As requisições podem ser feitas tanto diretamente no usuario-service quanto através do legado.
 
 ## Banco de Dados
