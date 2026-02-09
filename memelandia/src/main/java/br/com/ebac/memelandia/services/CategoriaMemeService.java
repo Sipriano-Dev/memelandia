@@ -1,26 +1,30 @@
 package br.com.ebac.memelandia.services;
 
+import br.com.ebac.memelandia.integration.categoria.CategoriaClient;
+import br.com.ebac.memelandia.integration.categoria.CategoriaConverter;
+import br.com.ebac.memelandia.integration.categoria.CategoriaRequest;
 import br.com.ebac.memelandia.entities.CategoriaMeme;
-import br.com.ebac.memelandia.repositories.RepositorioCategoriaMeme;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class CategoriaMemeService {
 
-    private final RepositorioCategoriaMeme repositorioCategoriaMeme;
+    private final CategoriaClient categoriaClient;
 
-    public CategoriaMemeService(RepositorioCategoriaMeme repositorioCategoriaMeme) {
-        this.repositorioCategoriaMeme = repositorioCategoriaMeme;
+    public CategoriaMemeService(CategoriaClient categoriaClient) {
+        this.categoriaClient = categoriaClient;
     }
 
+
     public CategoriaMeme criarCategoria(CategoriaMeme categoriaMeme) {
-        return repositorioCategoriaMeme.save(categoriaMeme);
+        return CategoriaConverter.toEntity(categoriaClient.criarCategoria(CategoriaConverter.toRequest(categoriaMeme))) ;
     }
 
     public List<CategoriaMeme> listarCategoria() {
-        return repositorioCategoriaMeme.findAll();
+        return categoriaClient.listarCategoria().stream().map(CategoriaConverter::toEntity).toList();
     }
 
 

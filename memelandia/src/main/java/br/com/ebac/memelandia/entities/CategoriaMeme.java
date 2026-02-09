@@ -21,7 +21,6 @@ public class CategoriaMeme {
     private Date dataCadastro;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
