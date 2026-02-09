@@ -20,7 +20,7 @@ public class UsuarioService {
 
     public Usuario criarUsuario(Usuario usuario) {
         return restTemplate.postForObject(
-                "http://localhost:8081/memelandia/usuarios",
+                "http://localhost:8081/usuarios",
                 usuario,
                 Usuario.class
         );
@@ -28,7 +28,7 @@ public class UsuarioService {
 
     public List<Usuario> listarUsuarios() {
         Usuario[] usuarios = restTemplate.getForObject(
-                "http://localhost:8081/memelandia/usuarios",
+                "http://localhost:8081/usuarios",
                 Usuario[].class
         );
         return Arrays.asList(usuarios);

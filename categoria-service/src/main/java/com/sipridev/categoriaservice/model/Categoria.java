@@ -1,13 +1,17 @@
-package br.com.ebac.memelandia.entities;
+package com.sipridev.categoriaservice.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 import java.sql.Date;
 
 @Entity
-public class Meme {
+@Table(name = "categoria_meme")
+public class Categoria {
+
+    public Categoria() {}
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_meme")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_categoria_meme")
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -20,32 +24,15 @@ public class Meme {
     @Column(name = "data_cadastro", nullable = false)
     private Date dataCadastro;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "categoria_meme_id")
-    private CategoriaMeme categoriaMeme;
+    @Column(name = "usuario_id", nullable = false)
+    private Long usuarioId;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
-
-    public Meme() {}
-
-    public Usuario getUsuario() {
-        return usuario;
+    public Long getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public CategoriaMeme getCategoriaMeme() {
-        return categoriaMeme;
-    }
-
-    public void setCategoriaMeme(CategoriaMeme categoriaMeme) {
-        this.categoriaMeme = categoriaMeme;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public Long getId() {

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sipridev</groupId>
-	<artifactId>usuario-service</artifactId>
+	<artifactId>categoria-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>usuario-service</name>
+	<name>categoria-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

@@ -1,5 +1,6 @@
 package br.com.ebac.memelandia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.sql.Date;
 
@@ -20,6 +21,7 @@ public class CategoriaMeme {
     private Date dataCadastro;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
