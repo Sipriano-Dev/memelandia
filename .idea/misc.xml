@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/memelandia/pom.xml" />
         <option value="$PROJECT_DIR$/usuario-service/pom.xml" />
         <option value="$PROJECT_DIR$/categoria-service/pom.xml" />
+        <option value="$PROJECT_DIR$/meme-service/pom.xml" />
       </list>
     </option>
   </component>
